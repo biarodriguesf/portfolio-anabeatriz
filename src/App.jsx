@@ -535,7 +535,7 @@ function App() {
         <section className="about section-space" id="sobre">
           <div className="about-inner section-wrap">
           <div className="section-kicker" data-reveal>
-            <span>01</span> / SOBRE MIM
+            <span>✳</span>  SOBRE MIM
           </div>
           <div className="about-layout">
             <div className="about-title" data-reveal>
@@ -587,7 +587,7 @@ function App() {
           <div className="services-content section-wrap">
             <div className="section-heading-row services-heading" data-reveal>
               <div>
-                <p className="section-kicker"><span>02</span> O QUE POSSO CRIAR</p>
+                <p className="section-kicker"><span>✳</span> O QUE POSSO CRIAR</p>
                 <h2>Soluções digitais para<br /><span>tirar ideias do papel.</span></h2>
               </div>
               <p className="section-intro">
@@ -652,7 +652,7 @@ function App() {
         <section className="projects-section section-space" id="projetos">
           <div className="section-wrap">
             <div className="section-kicker" data-reveal>
-              <span>03</span> / PROJETOS SELECIONADOS
+              <span>✳</span> PROJETOS SELECIONADOS
             </div>
             <div className="section-heading-row" data-reveal>
               <div>
@@ -761,7 +761,7 @@ function App() {
 
           <div className="tech-content-wrap">
           <div className="section-kicker" data-reveal>
-            <span>04</span> / MINHA STACK
+            <span>✳</span> MINHA STACK
           </div>
 
           <div className="tech-heading" data-reveal>
@@ -810,7 +810,7 @@ function App() {
         <section className="formation-section section-space" id="formacao">
           <div className="section-wrap">
             <div className="section-kicker" data-reveal>
-              <span>05</span> / FORMAÇÃO & CAMINHO
+              <span>✳</span>  FORMAÇÃO & CAMINHO
             </div>
             <div className="formation-layout">
               <div className="formation-heading" data-reveal>
@@ -861,7 +861,7 @@ function App() {
 
         <section className="contact-section section-wrap section-space" id="contato">
           <div className="section-kicker" data-reveal>
-            <span>06</span> / CONTATO
+            <span>✳</span> CONTATO
           </div>
 
           <div className="contact-shell" data-reveal>
@@ -909,7 +909,7 @@ function App() {
               }}
             >
               <div className="contact-form-heading">
-                <span className="contact-form-index">01 / NOVO CONTATO</span>
+                <span className="contact-form-index">✳</span>
                 <h3>Conte comigo para tirar sua ideia do papel.</h3>
                 <p>Preencha os campos e sua mensagem será preparada no WhatsApp.</p>
               </div>
