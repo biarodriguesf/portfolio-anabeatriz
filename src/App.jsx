@@ -1,4 +1,5 @@
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
 import "./index.css";
 
 const projects = [
@@ -9,215 +10,196 @@ const projects = [
     description:
       "Uma aplicação mobile pensada para transformar a experiência de compra, facilitar pedidos e organizar produtos de forma simples e intuitiva.",
     tech: ["React Native", "Expo", "JavaScript"],
-    image: "/mg-project.jpg",
     link: "#",
     github: "https://github.com/biarodriguesf/mg-deposito-bebidas",
-    details:
-      "Aplicação mobile desenvolvida para facilitar a experiência de compra no MG Depósito de Bebidas, com foco em organização de produtos, pedidos e uma navegação simples e intuitiva.",
     objective:
-      "Criar uma experiência mobile mais prática para facilitar a visualização dos produtos, organizar pedidos e tornar o processo de compra mais simples e intuitivo para o cliente.",
+      "Criar uma experiência digital para facilitar a visualização de produtos e tornar o processo de compra mais simples.",
     development:
-      "O projeto foi pensado e desenvolvido como uma aplicação mobile utilizando React Native e Expo. A estrutura foi organizada para oferecer uma navegação clara, apresentação dos produtos e uma experiência de compra próxima à realidade de um aplicativo comercial.",
+      "Desenvolvimento de uma interface mobile com foco na organização das informações, navegação intuitiva e experiência do usuário.",
     highlight:
-      "O destaque está na transformação de uma necessidade real de negócio em uma experiência digital, unindo interface, organização de produtos e praticidade para o usuário.",
+      "Um projeto que conecta necessidades reais de um negócio à construção de uma solução digital.",
   },
   {
     number: "02",
     title: "Álbum Rosangela & Lucas",
     category: "Experiência Digital",
     description:
-      "Uma experiência digital criada para um momento especial, permitindo que convidados compartilhem fotos e recados e construam juntos uma memória do casamento.",
+      "Uma experiência digital para reunir fotos e recados de um momento especial, conectando convidados e memórias em um único lugar.",
     tech: ["React", "Vite", "Supabase"],
-    image: "/album-project.jpg",
     link: "https://album-rosangela-lucas.vercel.app/",
     github: "https://github.com/biarodriguesf/album-rosangela-lucas",
-    details:
-      "Álbum colaborativo desenvolvido para o casamento de Rosangela & Lucas. A experiência permite que convidados compartilhem fotos e recados, criando uma memória digital colaborativa e especial.",
     objective:
-      "Criar um espaço digital onde os convidados pudessem registrar fotos e recados durante o casamento, transformando diferentes momentos compartilhados em uma memória digital colaborativa.",
+      "Desenvolver um álbum colaborativo em que os convidados possam compartilhar fotografias e mensagens do casamento.",
     development:
-      "O projeto foi desenvolvido com React e Vite, utilizando Supabase para estruturar a persistência dos dados. A aplicação foi pensada para funcionar de maneira simples para os convidados, permitindo o envio de fotos, legendas e mensagens através de uma interface personalizada para o casamento.",
+      "Interface responsiva em React e Vite, com integração ao Supabase para armazenamento e consulta de fotos e recados.",
     highlight:
-      "O grande destaque foi transformar uma ideia afetiva em uma experiência digital real e personalizada, conectando tecnologia, design e uma ocasião especial.",
+      "Uma solução personalizada que transforma registros de um evento em uma experiência digital compartilhada.",
   },
   {
     number: "03",
     title: "MARRY-SE",
     category: "Ecossistema Digital",
     description:
-      "Uma iniciativa digital para o universo dos casamentos, conectando tecnologia, identidade e experiências personalizadas em diferentes soluções.",
+      "Uma marca digital dedicada ao universo dos casamentos, com soluções que aproximam tecnologia, identidade e experiências personalizadas.",
     tech: ["React", "Vite", "CSS"],
-    image: "/marry-project.jpg",
     link: "https://marry-se-three.vercel.app/",
     github: "https://github.com/biarodriguesf/marry-se",
-    details:
-      "Um ecossistema digital pensado para o universo dos casamentos, reunindo tecnologia, identidade e experiências personalizadas em diferentes soluções para noivos.",
     objective:
-      "Criar uma proposta digital voltada exclusivamente para o universo dos casamentos, reunindo diferentes soluções em um ecossistema com identidade própria e experiência personalizada.",
+      "Criar uma identidade digital para reunir soluções tecnológicas pensadas especialmente para casamentos.",
     development:
-      "O projeto foi desenvolvido com React, Vite e CSS, estruturando uma experiência visual para apresentar a proposta da MARRY-SE, seus conceitos e soluções digitais. A interface foi construída com foco em identidade visual, navegação e apresentação dos serviços.",
+      "Construção de uma interface web com identidade visual própria, componentes reutilizáveis e apresentação dos serviços digitais.",
     highlight:
-      "O destaque está na criação de uma ideia de produto digital completa, unindo desenvolvimento, identidade de marca, experiência do usuário e soluções pensadas para um nicho específico.",
+      "Um projeto que une desenvolvimento front-end, identidade visual e visão de produto.",
+  },
+  {
+    number: "04",
+    title: "ABG Engenharia",
+    category: "Site Institucional",
+    description:
+      "Um site profissional desenvolvido para apresentar os serviços da empresa, fortalecer sua presença digital e facilitar o contato com clientes.",
+    tech: ["React", "Vite", "CSS"],
+    link: "https://abg-engenharia.vercel.app/",
+    github: "https://github.com/biarodriguesf/abg-engenharia",
+    objective:
+      "Construir uma presença digital profissional, alinhada à identidade da ABG Engenharia e à apresentação dos seus serviços.",
+    development:
+      "Desenvolvimento de um site institucional responsivo, com identidade visual em azul e branco, apresentação de serviços e caminhos de contato.",
+    highlight:
+      "Projeto publicado, desenvolvido para um negócio real e pensado para comunicar profissionalismo, confiança e clareza.",
   },
 ];
 
 const technologies = [
-  { name: "HTML5", icon: "html" },
-  { name: "CSS3", icon: "css" },
-  { name: "JavaScript", icon: "javascript" },
-  { name: "React", icon: "react" },
-  { name: "Vite", icon: "vite" },
-  { name: "Git", icon: "git" },
-  { name: "GitHub", icon: "github" },
-  { name: "Supabase", icon: "supabase" },
-  { name: "Vercel", icon: "vercel" },
+  { name: "HTML5", icon: "html5", level: "Estrutura web" },
+  { name: "CSS3", icon: "css3", level: "Estilização" },
+  { name: "JavaScript", icon: "javascript", level: "Lógica e interação" },
+  { name: "React", icon: "react", level: "Interfaces" },
+  { name: "Vite", icon: "vite", level: "Desenvolvimento web" },
+  { name: "Git", icon: "git", level: "Versionamento" },
+  { name: "GitHub", icon: "github", level: "Projetos e código" },
+  { name: "Supabase", icon: "supabase", level: "Banco de dados" },
+  { name: "Vercel", icon: "vercel", level: "Deploy" },
 ];
 
-function TechnologyIcon({ type }) {
+function TechnologyIcon({ name }) {
   const icons = {
-    html: {
-      src: "https://cdn.simpleicons.org/html5",
-      alt: "HTML5",
-    },
-    css: {
-      src: "https://cdn.simpleicons.org/css",
-      alt: "CSS3",
-    },
-    javascript: {
-      src: "https://cdn.simpleicons.org/javascript",
-      alt: "JavaScript",
-    },
-    react: {
-      src: "https://cdn.simpleicons.org/react",
-      alt: "React",
-    },
-    vite: {
-      src: "https://cdn.simpleicons.org/vite",
-      alt: "Vite",
-    },
-    git: {
-      src: "https://cdn.simpleicons.org/git",
-      alt: "Git",
-    },
-    github: {
-      src: "https://cdn.simpleicons.org/github",
-      alt: "GitHub",
-    },
-    supabase: {
-      src: "https://cdn.simpleicons.org/supabase",
-      alt: "Supabase",
-    },
-    vercel: {
-      src: "https://cdn.simpleicons.org/vercel",
-      alt: "Vercel",
-    },
+    html5: "https://cdn.simpleicons.org/html5/E34F26",
+    javascript: "https://cdn.simpleicons.org/javascript/F7DF1E",
+    react: "https://cdn.simpleicons.org/react/61DAFB",
+    vite: "https://cdn.simpleicons.org/vite/8B7CFF",
+    git: "https://cdn.simpleicons.org/git/F05032",
+    github: "https://cdn.simpleicons.org/github/181717",
+    supabase: "https://cdn.simpleicons.org/supabase/3FCF8E",
+    vercel: "https://cdn.simpleicons.org/vercel/000000",
   };
 
-  const icon = icons[type];
-
-  if (!icon) return null;
+  if (name === "css3") {
+    return (
+      <svg
+        className="technology-icon technology-icon-css3"
+        viewBox="0 0 24 24"
+        role="img"
+        aria-label="CSS3"
+      >
+        <path
+          fill="currentColor"
+          d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm7.031 9.75-.232-2.718 10.059.003.23-2.588-13.05-.003.698 7.958h9.086l-.304 3.34-2.994.83-3.003-.833-.192-2.15H6.128l.33 4.173 5.362 1.488 5.345-1.488.74-8.012H8.531z"
+        />
+      </svg>
+    );
+  }
 
   return (
     <img
-      className={`technology-svg technology-${type}`}
-      src={icon.src}
-      alt={icon.alt}
-      aria-hidden="true"
+      className="technology-icon"
+      src={icons[name]}
+      alt=""
+      loading="lazy"
+      decoding="async"
     />
   );
 }
 
 function GitHubIcon() {
   return (
-    <svg
-      className="social-svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.85 10.91.57.1.78-.25.78-.55v-2.02c-3.19.69-3.86-1.34-3.86-1.34-.52-1.33-1.27-1.69-1.27-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.75 1.18 1.75 1.18 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.24.73-1.52-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.45.11-3.03 0 0 .96-.31 3.15 1.17a10.96 10.96 0 0 1 5.74 0c2.19-1.48 3.15-1.17 3.15-1.17.62 1.58.23 2.74.11 3.03.73.8 1.18 1.82 1.18 3.07 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.08.78 2.18v3.23c0 .3.2.66.79.55A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.1c-3.1.67-3.76-1.31-3.76-1.31-.5-1.29-1.24-1.63-1.24-1.63-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1 1.72 2.61 1.22 3.25.93.1-.72.39-1.22.71-1.5-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.22 1.16-3-.12-.28-.5-1.42.11-2.96 0 0 .95-.3 3.05 1.15a10.6 10.6 0 0 1 5.55 0c2.1-1.45 3.05-1.15 3.05-1.15.61 1.54.23 2.68.11 2.96.72.78 1.16 1.78 1.16 3 0 4.29-2.61 5.24-5.1 5.51.4.35.76 1.02.76 2.06v3.09c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"
+      />
     </svg>
   );
 }
 
 function LinkedInIcon() {
   return (
-    <svg
-      className="social-svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path d="M5.16 3.27A2.27 2.27 0 1 1 .62 3.27a2.27 2.27 0 0 1 4.54 0ZM.85 8.13h4.17V21.5H.85V8.13ZM7.64 8.13h4v1.83h.06c.56-1.06 1.93-2.18 3.97-2.18 4.25 0 5.03 2.8 5.03 6.45v7.27h-4.17v-6.45c0-1.54-.03-3.52-2.15-3.52-2.15 0-2.48 1.68-2.48 3.41v6.56H7.64V8.13Z" />
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M20.45 2H3.55C2.69 2 2 2.68 2 3.52v16.96c0 .84.69 1.52 1.55 1.52h16.9c.86 0 1.55-.68 1.55-1.52V3.52c0-.84-.69-1.52-1.55-1.52ZM7.93 18.7H4.98V9.18h2.95v9.52ZM6.45 7.88a1.71 1.71 0 1 1 0-3.42 1.71 1.71 0 0 1 0 3.42ZM19 18.7h-2.94v-4.63c0-1.1-.02-2.52-1.54-2.52-1.55 0-1.79 1.2-1.79 2.44v4.71H9.8V9.18h2.82v1.3h.04c.39-.74 1.35-1.53 2.78-1.53 2.98 0 3.56 1.96 3.56 4.51v5.24Z"
+      />
     </svg>
   );
 }
 
 function MailIcon() {
   return (
-    <svg
-      className="social-svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      aria-hidden="true"
-    >
-      <rect x="3" y="5" width="18" height="14" rx="2" />
-      <path d="m4 7 8 6 8-6" />
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect
+        x="3"
+        y="5"
+        width="18"
+        height="14"
+        rx="2"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+      <path
+        d="m4 7 8 6 8-6"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </svg>
   );
 }
 
 function WhatsAppIcon() {
   return (
-    <svg
-      className="social-svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      aria-hidden="true"
-    >
-      <path d="M20.52 3.48A11.88 11.88 0 0 0 12.05.01C5.49.01.16 5.34.16 11.9c0 2.1.55 4.15 1.6 5.96L.05 23.99l6.27-1.64a11.9 11.9 0 0 0 5.73 1.46h.01c6.56 0 11.89-5.33 11.89-11.89 0-3.18-1.24-6.17-3.43-8.44Zm-8.47 18.31a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.72.98.99-3.63-.23-.37a9.88 9.88 0 0 1-1.52-5.28c0-5.47 4.45-9.92 9.93-9.92 2.65 0 5.14 1.03 7.01 2.91a9.86 9.86 0 0 1 2.91 7.02c0 5.47-4.45 9.92-9.93 9.92h-.03Zm5.44-7.44c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49 0 1.47 1.07 2.89 1.22 3.09.15.2 2.1 3.21 5.08 4.5.71.31 1.26.5 1.69.64.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z" />
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="currentColor"
+        d="M20.52 3.48A11.86 11.86 0 0 0 12.08 0C5.49 0 .13 5.35.13 11.94c0 2.1.55 4.16 1.6 5.98L0 24l6.25-1.64a11.95 11.95 0 0 0 5.82 1.49h.01c6.58 0 11.94-5.36 11.94-11.94 0-3.19-1.24-6.19-3.5-8.43ZM12.08 21.8a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.71.97.99-3.62-.23-.37a9.83 9.83 0 0 1-1.51-5.25c0-5.45 4.43-9.88 9.88-9.88a9.8 9.8 0 0 1 6.99 2.9 9.8 9.8 0 0 1 2.89 6.99c0 5.45-4.44 9.85-9.9 9.85Zm5.42-7.39c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.27-.47-2.42-1.5-.89-.79-1.5-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.49s1.07 2.89 1.22 3.09c.15.2 2.1 3.21 5.08 4.5.71.31 1.26.49 1.69.62.71.22 1.36.19 1.87.12.57-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"
+      />
     </svg>
   );
 }
 
 function InstagramIcon() {
   return (
-    <svg
-      className="social-svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      aria-hidden="true"
-    >
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4.2" />
-      <circle
-        cx="17.4"
-        cy="6.7"
-        r="1"
-        fill="currentColor"
-        stroke="none"
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <rect
+        x="3"
+        y="3"
+        width="18"
+        height="18"
+        rx="5"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
       />
-    </svg>
-  );
-}
-
-function LocationIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      width="18"
-      height="18"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      aria-hidden="true"
-    >
-      <path d="M20 10.2c0 5.1-8 11.3-8 11.3S4 15.3 4 10.2a8 8 0 1 1 16 0Z" />
-      <circle cx="12" cy="10" r="2.5" />
+      <circle
+        cx="12"
+        cy="12"
+        r="4"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+      <circle cx="17.5" cy="6.8" r="1.1" fill="currentColor" />
     </svg>
   );
 }
@@ -225,207 +207,256 @@ function LocationIcon() {
 function ProjectVisual({ number }) {
   if (number === "01") {
     return (
-      <div className="project-cover project-cover-mg">
-        <div className="mg-glow" />
-
-        <div className="mg-brand">
-          <span>MG</span>
-          <small>DEPÓSITO</small>
+      <div className="project-art art-mg">
+        <span className="art-index">MOBILE EXPERIENCE / 01</span>
+        <div className="mg-wordmark">
+          <span className="mg-mark">MG</span>
+          <span>DEPÓSITO<br />DE BEBIDAS</span>
         </div>
-
-        <div className="mg-phone">
-          <div className="mg-phone-top">
-            <span>MG DEPÓSITO</span>
-            <span>☰</span>
+        <div className="mg-orbit orbit-one" />
+        <div className="mg-orbit orbit-two" />
+        <div className="phone-mockup">
+          <div className="phone-top"><span /><span /></div>
+          <div className="phone-brand">MG.</div>
+          <div className="phone-search">Buscar produtos</div>
+          <div className="phone-product">
+            <span className="bottle-shape bottle-one" />
+            <span className="bottle-shape bottle-two" />
+            <span className="bottle-shape bottle-three" />
           </div>
-
-          <div className="mg-phone-banner">
-            <small>BEBIDAS GELADAS</small>
-            <strong>
-              Seu pedido
-              <br />
-              do seu jeito.
-            </strong>
-          </div>
-
-          <div className="mg-products">
-            <div className="mg-product">
-              <span className="mg-bottle bottle-one" />
-              <small>Refrigerante</small>
-            </div>
-
-            <div className="mg-product">
-              <span className="mg-bottle bottle-two" />
-              <small>Bebidas</small>
-            </div>
-
-            <div className="mg-product">
-              <span className="mg-bottle bottle-three" />
-              <small>Ofertas</small>
-            </div>
-          </div>
-
-          <div className="mg-cart">
-            <span>Ver carrinho</span>
-            <b>R$ 89,90</b>
-          </div>
+          <div className="phone-lines"><i /><i /><i /></div>
+          <div className="phone-nav"><i /><i /><i /><i /></div>
         </div>
-
-        <div className="mg-label">
-          <span>REACT NATIVE</span>
-          <span>EXPO</span>
-        </div>
+        <span className="art-sticker">APP<br />DESIGN</span>
       </div>
     );
   }
 
   if (number === "02") {
     return (
-      <div className="project-cover project-cover-album">
-        <div className="album-glow" />
-
-        <div className="album-frame">
-          <div className="album-top">
-            <span>UM CAPÍTULO DE AMOR</span>
-          </div>
-
-          <div className="album-main">
-            <div className="album-monogram">
-              R <i>&</i> L
-            </div>
-
-            <p>Rosangela & Lucas</p>
-
-            <div className="album-divider">
-              <span />
-              <b>♡</b>
-              <span />
-            </div>
-
-            <small>Um dia para guardar no coração</small>
-          </div>
-
-          <div className="album-bottom">
-            <span>FOTOS</span>
-            <span>RECADOS</span>
-            <span>MEMÓRIAS</span>
+      <div className="project-art art-album">
+        <span className="art-index">MEMORIES / 02</span>
+        <div className="album-sun" />
+        <div className="album-heading">
+          <span>UM DIA</span>
+          <strong>INESQUECÍVEL</strong>
+          <span>MEMÓRIAS PARA SEMPRE</span>
+        </div>
+        <div className="album-photo photo-back">
+          <span>R & L</span>
+        </div>
+        <div className="album-photo photo-front">
+          <div className="photo-placeholder">
+            <span>ROSANGELA</span>
+            <span>&</span>
+            <span>LUCAS</span>
           </div>
         </div>
+        <span className="album-caption">um álbum colaborativo</span>
+      </div>
+    );
+  }
 
-        <div className="album-photo photo-one" />
-        <div className="album-photo photo-two" />
-
-        <div className="album-card-note">
-          <span>ÁLBUM DIGITAL</span>
-          <strong>+</strong>
+  if (number === "03") {
+    return (
+      <div className="project-art art-marry">
+        <span className="art-index">WEDDING DIGITAL / 03</span>
+        <div className="marry-orbit orbit-a" />
+        <div className="marry-orbit orbit-b" />
+        <div className="marry-monogram">ms</div>
+        <div className="marry-heading">
+          <span>O UNIVERSO DO</span>
+          <strong>seu casamento.</strong>
         </div>
+        <div className="marry-panels">
+          <span>CONVITES</span>
+          <span>RSVP</span>
+          <span>ÁLBUNS</span>
+        </div>
+        <span className="marry-footer">TECNOLOGIA COM AFETO</span>
       </div>
     );
   }
 
   return (
-    <div className="project-cover project-cover-marry">
-      <div className="marry-orbit orbit-one" />
-      <div className="marry-orbit orbit-two" />
-
-      <div className="marry-header">
-        <span className="marry-logo">ms.</span>
-        <span>DIGITAL</span>
+    <div className="project-art art-abg">
+      <span className="art-index">INSTITUTIONAL WEBSITE / 04</span>
+      <div className="abg-blueprint blueprint-one" />
+      <div className="abg-blueprint blueprint-two" />
+      <div className="abg-grid" />
+      <div className="abg-logo">
+        <span className="abg-symbol">ABG<span>.</span></span>
+        <span>ENGENHARIA</span>
       </div>
-
-      <div className="marry-center">
-        <small>TECNOLOGIA PARA</small>
-
-        <h4>
-          MARRY<span>-</span>SE
-        </h4>
-
-        <p>O universo do seu casamento.</p>
+      <div className="abg-art-copy">
+        <span>SOLUÇÕES COM</span>
+        <strong>precisão<br />e confiança.</strong>
       </div>
-
-      <div className="marry-panels">
-        <div>
-          <span>01</span>
-          <strong>Convite</strong>
-        </div>
-
-        <div>
-          <span>02</span>
-          <strong>RSVP</strong>
-        </div>
-
-        <div>
-          <span>03</span>
-          <strong>Álbum</strong>
-        </div>
-      </div>
-
-      <div className="marry-line" />
+      <div className="abg-art-line" />
+      <span className="abg-art-tag">WEB DESIGN · 2026</span>
     </div>
   );
 }
 
 function App() {
   const [selectedProject, setSelectedProject] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("inicio");
+
+  useEffect(() => {
+    const sections = document.querySelectorAll(
+      "main section[id]"
+    );
+
+    if (!("IntersectionObserver" in window)) return undefined;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleSections = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+
+        if (visibleSections.length > 0) {
+          setActiveSection(visibleSections[0].target.id);
+        }
+      },
+      {
+        rootMargin: "-18% 0px -65% 0px",
+        threshold: 0,
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const elements = document.querySelectorAll("[data-reveal]");
+
+    if (!("IntersectionObserver" in window)) {
+      elements.forEach((element) => element.classList.add("is-visible"));
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    document.body.classList.toggle("modal-open", Boolean(selectedProject));
+
+    const onKeyDown = (event) => {
+      if (event.key === "Escape") {
+        setSelectedProject(null);
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.classList.remove("modal-open");
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [selectedProject]);
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
-    <div className="portfolio">
-      {/* HEADER */}
-      <header className="header">
-        <div className="container nav">
-          <a href="#inicio" className="logo" aria-label="Bia Rodrigues">
-            BR<span>.</span>
-          </a>
+    <>
+      <header className="site-header">
+        <a
+          className="brand"
+          href="#inicio"
+          onClick={closeMenu}
+          aria-label="Bia Rodrigues, início"
+        >
+          <span className="brand-mark">BR<span>.</span></span>
+          <span className="brand-name">
+            Bia Rodrigues
+            <small>Digital Solutions</small>
+          </span>
+        </a>
 
-          <nav className="nav-links">
-            <a href="#inicio">Início</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#projetos">Projetos</a>
-            <a href="#tecnologias">Tecnologias</a>
-            <a href="#formacao">Formação</a>
-            <a href="#contato">Contato</a>
-          </nav>
-        </div>
+        <button
+          className={`menu-toggle ${menuOpen ? "active" : ""}`}
+          type="button"
+          aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span /><span />
+        </button>
+
+        <nav className={`main-nav ${menuOpen ? "nav-open" : ""}`}>
+          {[
+            ["Início", "#inicio"],
+            ["Sobre", "#sobre"],
+            ["Serviços", "#servicos"],
+            ["Projetos", "#projetos"],
+            ["Tecnologias", "#tecnologias"],
+            ["Formação", "#formacao"],
+            ["Contato", "#contato"],
+          ].map(([label, href]) => (
+            <a
+              key={href}
+              href={href}
+              onClick={closeMenu}
+              className={activeSection === href.slice(1) ? "active" : ""}
+              aria-current={activeSection === href.slice(1) ? "location" : undefined}
+            >
+              {label}
+            </a>
+          ))}
+          <a className="nav-contact" href="#contato" onClick={closeMenu}>
+            Vamos conversar
+          </a>
+        </nav>
       </header>
 
       <main>
-        {/* HERO */}
-        <section className="hero" id="inicio">
-          <div className="hero-glow hero-glow-one" />
-          <div className="hero-glow hero-glow-two" />
+        <section className="hero section-wrap" id="inicio">
+          <div className="hero-topline" data-reveal>
+            <span className="eyebrow">
+              <i /> PORTFÓLIO DIGITAL · 2026
+            </span>
+            <span className="hero-location">RIO DE JANEIRO, BR</span>
+          </div>
 
-          <div className="container hero-content">
-            <div className="hero-copy">
-              <p className="hero-small">OLÁ, EU SOU</p>
-
+          <div className="hero-layout">
+            <div className="hero-copy" data-reveal>
+              <p className="hero-intro">Olá, eu sou a Bia.</p>
               <h1>
-                Ana Beatriz
-                <strong>Rodrigues Fulgêncio</strong>
+                Ideias que<br />
+                ganham vida<br />
+                <span>digital<span className="pink-dot">.</span></span>
               </h1>
-
               <p className="hero-description">
-                Estudante de Sistemas de Informação, construindo minha
-                trajetória em tecnologia com foco em{" "}
-                <strong>Cibersegurança</strong>.
+                Dev Front-End em formação, criando landing pages, sites e experiências digitais
+                que unem design, funcionalidade e tecnologia para pessoas e negócios.
               </p>
-
-              <div className="hero-location">
-                <span>
-                  <LocationIcon />
-                </span>
-                Rio de Janeiro, RJ
-              </div>
-
               <div className="hero-actions">
-                <a href="#projetos" className="primary-button">
-                  Ver meus projetos
+                <a className="button button-dark" href="#projetos">
+                  Explorar projetos
                 </a>
-
-                <a href="#contato" className="secondary-button">
-                  Entrar em contato
+                <a className="text-link" href="#sobre">
+                  Conheça meu trabalho
                 </a>
               </div>
-
               <div className="hero-socials">
                 <a
                   href="https://github.com/biarodriguesf"
@@ -435,7 +466,6 @@ function App() {
                 >
                   <GitHubIcon />
                 </a>
-
                 <a
                   href="https://www.linkedin.com/in/anabeatrizrodriguesfulgencio"
                   target="_blank"
@@ -444,163 +474,192 @@ function App() {
                 >
                   <LinkedInIcon />
                 </a>
-
                 <a
                   href="mailto:anabeatrizrf.tech@gmail.com"
                   aria-label="E-mail"
                 >
                   <MailIcon />
                 </a>
-
-                <a
-                  href="https://wa.me/5521993051380"
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="WhatsApp"
-                >
-                  <WhatsAppIcon />
-                </a>
+                <span className="social-divider" />
+                <span className="social-label">
+                  CÓDIGO, IDEIAS & POSSIBILIDADES
+                </span>
               </div>
             </div>
 
-            <div className="hero-card-area">
-              <div className="hero-card">
-                <div className="hero-card-top">
-                  <span className="code-dot" />
-                  <span className="code-dot" />
-                  <span className="code-dot" />
-                </div>
-
-                <div className="code-content">
-                  <span className="code-line">
-                    <i>const</i> <b>bia</b> = {"{"}
-                  </span>
-
-                  <span className="code-line indent">
-                    <i>foco</i>: <em>"Cyber Security"</em>,
-                  </span>
-
-                  <span className="code-line indent">
-                    <i>estudos</i>: <em>"Sistemas de Informação"</em>,
-                  </span>
-
-                  <span className="code-line indent">
-                    <i>paixão</i>: <em>"Tecnologia"</em>,
-                  </span>
-
-                  <span className="code-line indent">
-                    <i>status</i>: <em>"Construindo e evoluindo"</em>
-                  </span>
-
-                  <span className="code-line">{"};"}</span>
-                </div>
-
-                <div className="hero-card-bottom">
-                  <span>portfolio.jsx</span>
-                  <span>● online</span>
-                </div>
+            <div className="hero-visual" data-reveal>
+              <div className="visual-outline" />
+              <div className="visual-orbit orbit-outer" />
+              <div className="visual-orbit orbit-inner" />
+              <div className="visual-center">
+                <span className="visual-br">BR<span>.</span></span>
+                <span className="visual-center-caption">
+                  DESIGNING<br />MY NEXT CHAPTER
+                </span>
               </div>
-
-              <div className="floating-badge badge-one">
-                <span>✦</span>
-                Tecnologia
+              <div className="code-card">
+                <div className="code-card-top">
+                  <span /><span /><span />
+                  <small>about-me.js</small>
+                </div>
+                <pre><span className="code-purple">const</span> bia = {"{"}<br />{"  "}área: <span className="code-green">"tecnologia"</span>,<br />{"  "}foco: <span className="code-green">"cibersegurança"</span>,<br />{"  "}status: <span className="code-green">"em evolução"</span><br />{"}"};</pre>
               </div>
-
-              <div className="floating-badge badge-two">
-                <span>⌁</span>
-                Cyber Security
+              <div className="floating-label label-tech">
+                <span>✳</span> Tecnologia
               </div>
+              <div className="floating-label label-cyber">
+                <span>✳</span> Front-End & Web
+              </div>
+              <span className="visual-index">01 / 04</span>
+            </div>
+          </div>
+
+          <div className="hero-bottom" data-reveal>
+            <span>UMA IDEIA DE CADA VEZ.</span>
+            <a href="#sobre">ROLE PARA DESCOBRIR</a>
+            <span>ESTUDANTE · CRIADORA · DESENVOLVEDORA</span>
+          </div>
+        </section>
+
+        <div className="marquee" aria-label="Tecnologia, criatividade e evolução">
+          <div className="marquee-track">
+            {Array.from({ length: 4 }).map((_, index) => (
+              <span key={index}>
+                TECNOLOGIA <i>✳</i> CRIATIVIDADE <i>✳</i> EVOLUÇÃO <i>✳</i>
+                NOVAS POSSIBILIDADES <i>✳</i>
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <section className="about section-space" id="sobre">
+          <div className="about-inner section-wrap">
+          <div className="section-kicker" data-reveal>
+            <span>01</span> / SOBRE MIM
+          </div>
+          <div className="about-layout">
+            <div className="about-title" data-reveal>
+              <p className="eyebrow">NEM SEMPRE FOI SOBRE TECNOLOGIA.</p>
+              <h2>Uma trajetória<br />em <span>evolução.</span></h2>
+              <div className="about-asterisk">✳</div>
+            </div>
+            <div className="about-content" data-reveal>
+              <blockquote>
+                “Eu decidi mudar minha história e comecei pelos estudos.”
+              </blockquote>
+              <p>
+                Minha jornada na tecnologia começou com uma decisão: abrir espaço
+                para novas possibilidades e construir um caminho profissional que
+                fizesse sentido para mim.
+              </p>
+              <p>
+                Nunca havia tentado o ENEM. Conquistei uma bolsa integral pelo
+                ProUni e fui aprovada para Engenharia Ambiental na UFRJ, mas
+                escolhi seguir em Sistemas de Informação. Hoje, estou no 6º período
+                e continuo transformando curiosidade em aprendizado e projetos reais.
+              </p>
+              <a className="text-link" href="#formacao">
+                Mais sobre minha jornada
+              </a>
+            </div>
+          </div>
+          <div className="stats-row" data-reveal>
+            <div className="stat-item">
+              <strong>30<span>+</span></strong>
+              <span>anos de vida e novas escolhas</span>
+            </div>
+            <div className="stat-item">
+              <strong>06</strong>
+              <span>período de Sistemas de Informação</span>
+            </div>
+            <div className="stat-item">
+              <strong>100<span>%</span></strong>
+              <span>bolsa ProUni</span>
+            </div>
+            <div className="stat-note">
+              O próximo capítulo<br />está em construção.
+            </div>
+          </div>
+          </div>
+        </section>
+
+        <section className="services-section section-space" id="servicos">
+          <div className="services-content section-wrap">
+            <div className="section-heading-row services-heading" data-reveal>
+              <div>
+                <p className="section-kicker"><span>02</span> O QUE POSSO CRIAR</p>
+                <h2>Soluções digitais para<br /><span>tirar ideias do papel.</span></h2>
+              </div>
+              <p className="section-intro">
+                Cada projeto começa com uma necessidade e ganha forma por meio do design, do desenvolvimento e da tecnologia.
+              </p>
+            </div>
+
+            <div className="services-timeline">
+              <article className="service-step" data-reveal>
+                <div className="service-step-marker" aria-hidden="true"><span>01</span></div>
+                <div className="service-step-content">
+                  <span className="service-index">PRESENÇA DIGITAL</span>
+                  <h3>Landing Pages</h3>
+                  <p>Páginas estratégicas para divulgar serviços, campanhas ou produtos e facilitar o contato com seu público.</p>
+                  <span className="service-tags">Divulgação <i>·</i> Clareza <i>·</i> Responsividade</span>
+                </div>
+              </article>
+
+              <article className="service-step" data-reveal>
+                <div className="service-step-marker" aria-hidden="true"><span>02</span></div>
+                <div className="service-step-content">
+                  <span className="service-index">PRESENÇA PROFISSIONAL</span>
+                  <h3>Sites Institucionais</h3>
+                  <p>Sites para apresentar sua empresa, seus serviços e sua identidade com uma experiência organizada em diferentes telas.</p>
+                  <span className="service-tags">Negócios <i>·</i> Serviços <i>·</i> Portfólios</span>
+                </div>
+              </article>
+
+              <article className="service-step" data-reveal>
+                <div className="service-step-marker" aria-hidden="true"><span>03</span></div>
+                <div className="service-step-content">
+                  <span className="service-index">SOLUÇÕES WEB</span>
+                  <h3>Sistemas e Aplicações</h3>
+                  <p>Interfaces e experiências web personalizadas para organizar informações, simplificar tarefas e apoiar processos.</p>
+                  <span className="service-tags">Front-End <i>·</i> Interfaces <i>·</i> Funcionalidade</span>
+                </div>
+              </article>
+
+              <article className="service-step service-step-last" data-reveal>
+                <div className="service-step-marker" aria-hidden="true"><span>04</span></div>
+                <div className="service-step-content">
+                  <span className="service-index">EXPERIÊNCIA DIGITAL</span>
+                  <h3>Projetos Personalizados</h3>
+                  <p>Soluções digitais desenvolvidas a partir das necessidades de cada projeto, com recursos e experiências pensados sob medida.</p>
+                  <span className="service-tags">Personalização <i>·</i> Experiência <i>·</i> Tecnologia</span>
+                </div>
+              </article>
+            </div>
+
+            <div className="services-cta" data-reveal>
+              <div className="services-cta-copy">
+                <h3>Uma boa ideia merece <span>sair do rascunho.</span></h3>
+                <p>Me conte o que você quer construir. Vamos encontrar o caminho digital certo para transformar sua ideia em projeto.</p>
+              </div>
+              <a className="button button-dark services-cta-button" href="#contato">
+                Vamos conversar
+              </a>
             </div>
           </div>
         </section>
 
-        {/* SOBRE */}
-        <section className="section about-section" id="sobre">
-          <div className="container">
-            <div className="section-heading">
-              <div>
-                <p style={{ color: "var(--pink)" }}>MINHA TRAJETÓRIA</p>
-
-                <h2>
-                  Uma trajetória <span>em evolução.</span>
-                </h2>
-              </div>
-
-              <p className="heading-description"></p>
+        <section className="projects-section section-space" id="projetos">
+          <div className="section-wrap">
+            <div className="section-kicker" data-reveal>
+              <span>03</span> / PROJETOS SELECIONADOS
             </div>
-
-            <div className="about-grid">
-              <div className="about-highlight">
-                <span className="quote-mark">“</span>
-
-                <h3>
-                  Eu decidi mudar minha história
-                  <br />
-                  e comecei pelos estudos.
-                </h3>
-
-                <div className="about-line" />
-
-                <p>
-                  Uma escolha que abriu caminho para novos objetivos e
-                  possibilidades.
-                </p>
-              </div>
-
-              <div className="about-text">
-                <p>
-                  Sem nunca ter tentado o ENEM, decidi me dedicar aos estudos e
-                  conquistei uma <strong>bolsa ProUni 100%</strong>, sendo
-                  aprovada para <strong>Engenharia Ambiental na UFRJ</strong>.
-                  Ao longo dessa jornada, percebi que meus interesses estavam
-                  em outro caminho.
-                </p>
-
-                <p>
-                  Foi então que decidi mudar de direção e construir uma nova
-                  trajetória profissional.
-                </p>
-
-                <p>
-                  Hoje, sigo evoluindo através do aprendizado, da tecnologia e
-                  dos desafios que encontro pelo caminho, transformando cada
-                  conquista em um novo passo para o futuro.
-                </p>
-
-                <div className="about-stats">
-                  <div>
-                    <strong>30</strong>
-                    <span>anos</span>
-                  </div>
-
-                  <div>
-                    <strong>6º</strong>
-                    <span>período de SI</span>
-                  </div>
-
-                  <div>
-                    <strong>100%</strong>
-                    <span>ProUni</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* PROJETOS */}
-        <section className="section projects-section" id="projetos">
-          <div className="container">
-            <div className="section-heading centered">
+            <div className="section-heading-row" data-reveal>
               <div>
-                <p style={{ color: "var(--pink)" }}>PROJETOS</p>
-
-                <h2>
-                  O que estou <span>construindo.</span>
-                </h2>
+                <p className="eyebrow">IDEIAS QUE GANHAM FORMA.</p>
+                <h2>O que estou<br /><span>construindo.</span></h2>
               </div>
-
-              <p className="heading-description">
+              <p className="section-intro">
                 Projetos que nasceram de ideias reais e se transformaram em
                 experiências digitais, unindo tecnologia, criatividade e
                 resolução de problemas.
@@ -608,347 +667,363 @@ function App() {
             </div>
 
             <div className="projects-grid">
-              {projects.map((project) => (
-                <article className="project-card" key={project.number}>
-                  <div className="project-image">
+              {projects.map((project, index) => (
+                <article
+                  className={`project-card project-card-${project.number}`}
+                  key={project.number}
+                  data-reveal
+                  style={{ "--reveal-delay": `${(index % 2) * 100}ms` }}
+                >
+                  <div className="project-art-wrap">
                     <ProjectVisual number={project.number} />
-
-                    <span className="project-number">{project.number}</span>
-                  </div>
-
-                  <div className="project-content">
-                    <span className="project-category">
-                      {project.category}
+                    <span className="project-number">
+                      {project.number} / 04
                     </span>
-
+                    {project.link !== "#" && (
+                      <a
+                        className="project-open"
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`Abrir ${project.title}`}
+                      >
+                        Abrir projeto
+                      </a>
+                    )}
+                  </div>
+                  <div className="project-info">
+                    <div className="project-meta">
+                      <span>{project.category}</span>
+                      <span>2026</span>
+                    </div>
                     <h3>{project.title}</h3>
-
                     <p>{project.description}</p>
-
-                    <div className="project-tech">
-                      {project.tech.map((item) => (
-                        <span key={item}>{item}</span>
+                    <div className="tech-tags">
+                      {project.tech.map((tech) => (
+                        <span key={tech}>{tech}</span>
                       ))}
                     </div>
-
                     <div className="project-actions">
                       {project.link !== "#" ? (
                         <a
+                          className="project-link"
                           href={project.link}
                           target="_blank"
                           rel="noreferrer"
-                          className="project-action project-action-primary"
                         >
                           Ver projeto
                         </a>
                       ) : (
-                        <span className="project-action project-action-disabled">
-                          Ver projeto
+                        <span className="project-link project-disabled">
+                          Projeto em desenvolvimento
                         </span>
                       )}
-
-                      <a
-                        href={project.github}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="project-action"
-                      >
-                        <GitHubIcon />
-                        Ver código
-                      </a>
-
+                      {project.github && (
+                        <a
+                          className="project-github"
+                          href={project.github}
+                          target="_blank"
+                          rel="noreferrer"
+                          aria-label={`GitHub de ${project.title}`}
+                        >
+                          <GitHubIcon />
+                        </a>
+                      )}
                       <button
-                        type="button"
-                        className="project-action"
+                        className="details-button"
                         onClick={() => setSelectedProject(project)}
                       >
-                        Mais detalhes
+                        Detalhes
                       </button>
                     </div>
                   </div>
                 </article>
               ))}
             </div>
-          </div>
-        </section>
 
-        {/* TECNOLOGIAS */}
-        <section className="section technologies-section" id="tecnologias">
-          <div className="container">
-            <div className="section-heading centered">
-              <p>STACK</p>
-
-              <h2>
-                Tecnologias que <span>utilizo.</span>
-              </h2>
-            </div>
-
-            <div className="technology-grid">
-              {technologies.map((technology) => (
-                <div className="technology-card" key={technology.name}>
-                  <div className="technology-icon">
-                    <TechnologyIcon type={technology.icon} />
-                  </div>
-
-                  <span>{technology.name}</span>
-                </div>
-              ))}
+            <div className="projects-footnote" data-reveal>
+              <span></span>
+              <span className="projects-footnote-discover">
+                <span className="pink-dot"></span>
+              </span>
             </div>
           </div>
         </section>
 
-        {/* FORMAÇÃO */}
-        <section className="section formation-section" id="formacao">
-          <div className="container">
-            <div className="section-heading centered">
-              <p>FORMAÇÃO E EXPERIÊNCIA</p>
+        <section className="tech-section" id="tecnologias">
+          <div className="tech-ambient" aria-hidden="true">
+            <span className="tech-ambient-orbit tech-ambient-orbit-one" />
+            <span className="tech-ambient-orbit tech-ambient-orbit-two" />
+            <span className="tech-ambient-glow" />
+            <span className="tech-ambient-cross tech-cross-one">✳</span>
+            <span className="tech-ambient-cross tech-cross-two">✳</span>
+          </div>
 
-              <h2>
-                Estudos & <span>experiência.</span>
-              </h2>
+          <div className="tech-content-wrap">
+          <div className="section-kicker" data-reveal>
+            <span>04</span> / MINHA STACK
+          </div>
+
+          <div className="tech-heading" data-reveal>
+            <div className="tech-heading-copy">
+              <p className="eyebrow">APRENDER. CONSTRUIR. EVOLUIR.</p>
+              <h2>Ferramentas que dão<br /><span>vida às ideias.</span></h2>
+              <p>
+                Tecnologias que utilizo nos meus projetos e continuo explorando para criar experiências digitais cada vez melhores.
+              </p>
             </div>
-
-            <div className="timeline">
-              <div className="timeline-item">
-                <span className="timeline-marker" />
-
-                <div className="timeline-content">
-                  <span>ATUALMENTE</span>
-
-                  <h3>Sistemas de Informação</h3>
-
-                  <p>
-                    6º período, construindo uma base sólida em tecnologia,
-                    desenvolvimento e sistemas.
-                  </p>
-                </div>
-              </div>
-
-              <div className="timeline-item">
-                <span className="timeline-marker" />
-
-                <div className="timeline-content">
-                  <span>FORMAÇÃO EM ANDAMENTO</span>
-
-                  <h3>Cibersegurança</h3>
-
-                  <p>
-                    Santander | Cibersegurança do Zero à Prática, através da
-                    Santander Open Academy e DIO.
-                  </p>
-                </div>
-              </div>
-
-              <div className="timeline-item">
-                <span className="timeline-marker" />
-
-                <div className="timeline-content">
-                  <span>EXPERIÊNCIA PROFISSIONAL</span>
-
-                  <h3>Administrativo & Comercial</h3>
-
-                  <p>
-                    Experiência com atendimento, organização, negociação,
-                    acompanhamento de clientes e demandas comerciais.
-                  </p>
-                </div>
-              </div>
+            <div className="tech-stack-stamp" aria-label="Stack em evolução">
+              <span className="tech-stamp-top">BR. / STACK</span>
+              <span className="tech-stamp-symbol">✳</span>
+              <span className="tech-stamp-bottom">BUILD · LEARN · REPEAT</span>
             </div>
+          </div>
+
+          <div className="tech-grid-label" data-reveal>
+            <span><i></i> TECNOLOGIAS E FERRAMENTAS</span>
+            <span>09 ITENS</span>
+          </div>
+
+          <div className="tech-grid">
+            {technologies.map((technology, index) => (
+              <article
+                className="tech-card"
+                key={technology.name}
+                data-reveal
+                style={{ "--reveal-delay": `${index * 55}ms` }}
+              >
+                <span className="tech-card-index">{String(index + 1).padStart(2, "0")}</span>
+                <div className="tech-icon-wrap">
+                  <TechnologyIcon name={technology.icon} />
+                </div>
+                <div className="tech-card-copy">
+                  <strong>{technology.name}</strong>
+                  <span>{technology.level}</span>
+                </div>
+              </article>
+            ))}
+          </div>
+
           </div>
         </section>
 
-        {/* CONTATO */}
-        <section className="section contact-section" id="contato">
-          <div className="container">
-            <div className="contact-card">
-              <div className="contact-content">
-                <p className="contact-label">CONTATO</p>
-
-                <h2>
-                  Vamos transformar ideias em <span>projetos?</span>
-                </h2>
-
-                <p className="contact-description">
-                  Tem uma ideia, oportunidade ou projeto em mente? Vamos
-                  conversar e transformar possibilidades em algo real.
+        <section className="formation-section section-space" id="formacao">
+          <div className="section-wrap">
+            <div className="section-kicker" data-reveal>
+              <span>05</span> / FORMAÇÃO & CAMINHO
+            </div>
+            <div className="formation-layout">
+              <div className="formation-heading" data-reveal>
+                <p className="eyebrow">PASSO A PASSO.</p>
+                <h2>Aprender.<br /><span>Experimentar.</span><br />Evoluir.</h2>
+                <p>
+                  Uma trajetória construída com curiosidade, consistência e vontade de aprender.
                 </p>
-
-                <a
-                  href="https://wa.me/5521993051380"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="primary-button"
-                >
-                  Fale comigo
-                </a>
               </div>
-
-              <div className="contact-links">
-                <a
-                  href="mailto:anabeatrizrf.tech@gmail.com"
-                  className="contact-link"
-                >
-                  <MailIcon />
-
-                  <div>
-                    <span>E-mail</span>
-                    <strong>anabeatrizrf.tech@gmail.com</strong>
+              <div className="timeline">
+                <article className="timeline-item" data-reveal>
+                  <div className="timeline-marker">01</div>
+                  <div className="timeline-content">
+                    <span className="timeline-label">EM ANDAMENTO</span>
+                    <h3>Sistemas de Informação</h3>
+                    <p>Graduação · 6º período</p>
+                    <span className="timeline-description">
+                      Fundamentos de tecnologia, desenvolvimento de sistemas e construção de soluções digitais.
+                    </span>
                   </div>
-                </a>
-
-                <a
-                  href="https://wa.me/5521993051380"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="contact-link"
-                >
-                  <WhatsAppIcon />
-
-                  <div>
-                    <span>WhatsApp</span>
-                    <strong>(21) 99305-1380</strong>
+                </article>
+                <article className="timeline-item" data-reveal>
+                  <div className="timeline-marker">02</div>
+                  <div className="timeline-content">
+                    <span className="timeline-label">OUT. — DEZ. 2026</span>
+                    <h3>Cibersegurança do Zero à Prática</h3>
+                    <p>Santander Open Academy + DIO</p>
+                    <span className="timeline-description">
+                      Formação complementar para aprofundar conhecimentos em segurança da informação.
+                    </span>
                   </div>
-                </a>
-
-                <a
-                  href="https://www.instagram.com/biarodriguess.f/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="contact-link"
-                >
-                  <InstagramIcon />
-
-                  <div>
-                    <span>Instagram</span>
-                    <strong>@biarodriguess.f</strong>
+                </article>
+                <article className="timeline-item" data-reveal>
+                  <div className="timeline-marker">03</div>
+                  <div className="timeline-content">
+                    <span className="timeline-label">EXPERIÊNCIA PROFISSIONAL</span>
+                    <h3>Administrativo & Comercial</h3>
+                    <p>Atendimento, organização e negociação</p>
+                    <span className="timeline-description">
+                      Experiência com atendimento, acompanhamento de oportunidades, orçamentos e relacionamento com clientes.
+                    </span>
                   </div>
-                </a>
-
-                <a
-                  href="https://github.com/biarodriguesf"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="contact-link"
-                >
-                  <GitHubIcon />
-
-                  <div>
-                    <span>GitHub</span>
-                    <strong>github.com/biarodriguesf</strong>
-                  </div>
-                </a>
-
-                <a
-                  href="https://www.linkedin.com/in/anabeatrizrodriguesfulgencio"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="contact-link"
-                >
-                  <LinkedInIcon />
-
-                  <div>
-                    <span>LinkedIn</span>
-                    <strong>
-                      linkedin.com/in/anabeatrizrodriguesfulgencio
-                    </strong>
-                  </div>
-                </a>
+                </article>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section className="contact-section section-wrap section-space" id="contato">
+          <div className="section-kicker" data-reveal>
+            <span>06</span> / CONTATO
+          </div>
+
+          <div className="contact-shell" data-reveal>
+            <div className="contact-intro">
+              <span className="contact-eyebrow"><span className="contact-status-dot" /> VAMOS CONVERSAR</span>
+              <h2>Seu próximo projeto começa com uma <span>mensagem.</span></h2>
+              <p className="contact-description">
+                Tem uma ideia, precisa de um site ou quer tirar um projeto digital do papel? Me conte um pouco sobre o que você imagina. Vamos encontrar o melhor caminho juntos.
+              </p>
+
+              <div className="contact-info-list">
+                <a className="contact-info-card" href="mailto:anabeatrizrf.tech@gmail.com">
+                  <span className="contact-info-icon"><MailIcon /></span>
+                  <span className="contact-info-copy"><small>ME ESCREVA POR E-MAIL</small><strong>anabeatrizrf.tech@gmail.com</strong></span>
+                  <span className="contact-info-mark">✳</span>
+                </a>
+                <a className="contact-info-card contact-info-whatsapp" href="https://wa.me/5521993051380" target="_blank" rel="noreferrer">
+                  <span className="contact-info-icon"><WhatsAppIcon /></span>
+                  <span className="contact-info-copy"><small>CONVERSA RÁPIDA</small><strong>Fale comigo pelo WhatsApp</strong></span>
+                  <span className="contact-info-mark">✳</span>
+                </a>
+              </div>
+
+              <div className="contact-social-area">
+                <span className="contact-social-label">VOCÊ TAMBÉM ME ENCONTRA AQUI</span>
+                <div className="contact-socials">
+                  <a href="https://www.instagram.com/biarodriguess.f/" target="_blank" rel="noreferrer" aria-label="Instagram"><InstagramIcon /></a>
+                  <a href="https://github.com/biarodriguesf" target="_blank" rel="noreferrer" aria-label="GitHub"><GitHubIcon /></a>
+                  <a href="https://www.linkedin.com/in/anabeatrizrodriguesfulgencio" target="_blank" rel="noreferrer" aria-label="LinkedIn"><LinkedInIcon /></a>
+                </div>
+              </div>
+            </div>
+
+            <form
+              className="contact-form"
+              onSubmit={(event) => {
+                event.preventDefault();
+                const formData = new FormData(event.currentTarget);
+                const nome = String(formData.get("nome") || "").trim();
+                const email = String(formData.get("email") || "").trim();
+                const assunto = String(formData.get("assunto") || "").trim();
+                const mensagem = String(formData.get("mensagem") || "").trim();
+                const texto = `Olá, Bia! Meu nome é ${nome}.\nE-mail para retorno: ${email}\nAssunto: ${assunto || "Novo projeto"}\n\nMensagem: ${mensagem}`;
+                window.open(`https://wa.me/5521993051380?text=${encodeURIComponent(texto)}`, "_blank", "noopener,noreferrer");
+              }}
+            >
+              <div className="contact-form-heading">
+                <span className="contact-form-index">01 / NOVO CONTATO</span>
+                <h3>Conte comigo para tirar sua ideia do papel.</h3>
+                <p>Preencha os campos e sua mensagem será preparada no WhatsApp.</p>
+              </div>
+
+              <div className="contact-form-row">
+                <label className="contact-field">
+                  <span>Seu nome <i>*</i></span>
+                  <input type="text" name="nome" placeholder="Como posso te chamar?" autoComplete="name" required />
+                </label>
+                <label className="contact-field">
+                  <span>Seu e-mail <i>*</i></span>
+                  <input type="email" name="email" placeholder="voce@exemplo.com" autoComplete="email" required />
+                </label>
+              </div>
+
+              <label className="contact-field">
+                <span>Sobre o que vamos conversar?</span>
+                <select name="assunto" defaultValue="">
+                  <option value="" disabled>Selecione o assunto</option>
+                  <option value="Landing page">Landing page</option>
+                  <option value="Site institucional">Site institucional</option>
+                  <option value="Sistema ou aplicação">Sistema ou aplicação</option>
+                  <option value="Melhoria em um projeto existente">Melhoria em um projeto existente</option>
+                  <option value="Oportunidade profissional">Oportunidade profissional</option>
+                  <option value="Outro assunto">Outro assunto</option>
+                </select>
+              </label>
+
+              <label className="contact-field">
+                <span>Sua mensagem <i>*</i></span>
+                <textarea name="mensagem" rows="5" placeholder="Me conte um pouco sobre sua ideia, objetivo ou necessidade..." required />
+              </label>
+
+              <button className="contact-submit" type="submit">
+                Enviar mensagem
+              </button>
+              <p className="contact-form-note">Ao enviar, o WhatsApp será aberto com os dados preenchidos para você revisar e encaminhar.</p>
+            </form>
           </div>
         </section>
       </main>
 
-      {/* MODAL - MAIS DETALHES */}
+      <footer className="site-footer section-wrap">
+        <a className="footer-brand" href="#inicio">BR<span>.</span></a>
+        <span>Desenvolvido por Bia Rodrigues</span>
+        <span>© 2026 · TODOS OS DIREITOS RESERVADOS</span>
+        <a className="back-top" href="#inicio">VOLTAR AO TOPO</a>
+      </footer>
+
       {selectedProject && (
-        <div
-          className="project-modal"
-          onClick={() => setSelectedProject(null)}
-        >
-          <div
-            className="project-modal-content"
+        <div className="modal-backdrop" onClick={() => setSelectedProject(null)}>
+          <section
+            className="project-modal"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modal-title"
             onClick={(event) => event.stopPropagation()}
           >
             <button
-              type="button"
-              className="project-modal-close"
+              className="modal-close"
               onClick={() => setSelectedProject(null)}
               aria-label="Fechar detalhes"
             >
               ×
             </button>
-
-            <div className="project-modal-header">
-              <div>
-                <span className="project-category">
-                  {selectedProject.category}
-                </span>
-
-                <h3>{selectedProject.title}</h3>
-              </div>
-
-              <span className="project-modal-number">
-                {selectedProject.number}
-              </span>
+            <div className="modal-topline">
+              <span>PROJETO {selectedProject.number}</span>
+              <span>{selectedProject.category}</span>
             </div>
-
-            <div className="project-modal-line" />
-
-            <div className="project-detail-grid">
-              <div className="project-detail-card">
-                <span className="project-detail-icon">◎</span>
-                <div>
-                  <small>OBJETIVO</small>
-                  <p>{selectedProject.objective}</p>
-                </div>
-              </div>
-
-              <div className="project-detail-card">
-                <span className="project-detail-icon">⌁</span>
-                <div>
-                  <small>COMO FOI FEITO</small>
-                  <p>{selectedProject.development}</p>
-                </div>
-              </div>
-
-              <div className="project-detail-card project-detail-full">
-                <span className="project-detail-icon">✦</span>
-                <div>
-                  <small>DESTAQUE DO PROJETO</small>
-                  <p>{selectedProject.highlight}</p>
-                </div>
-              </div>
+            <h2 id="modal-title">{selectedProject.title}<span>.</span></h2>
+            <p className="modal-description">{selectedProject.description}</p>
+            <div className="modal-detail">
+              <span>01 / OBJETIVO</span>
+              <p>{selectedProject.objective}</p>
             </div>
-
-            <div className="project-modal-tech-section">
-              <div className="project-modal-tech-title">
-                <span>STACK UTILIZADA</span>
-                <div />
-              </div>
-
-              <div className="project-modal-tech">
-                {selectedProject.tech.map((item) => (
-                  <span key={item}>{item}</span>
-                ))}
-              </div>
+            <div className="modal-detail">
+              <span>02 / DESENVOLVIMENTO</span>
+              <p>{selectedProject.development}</p>
             </div>
-          </div>
+            <div className="modal-detail">
+              <span>03 / DESTAQUE</span>
+              <p>{selectedProject.highlight}</p>
+            </div>
+            <div className="modal-tech">
+              {selectedProject.tech.map((tech) => (
+                <span key={tech}>{tech}</span>
+              ))}
+            </div>
+            <div className="modal-actions">
+              {selectedProject.link !== "#" && (
+                <a
+                  className="button button-dark"
+                  href={selectedProject.link}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Visitar projeto
+                </a>
+              )}
+              {selectedProject.github && (
+                <a
+                  className="text-link"
+                  href={selectedProject.github}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Ver código no GitHub
+                </a>
+              )}
+            </div>
+          </section>
         </div>
       )}
-
-      {/* FOOTER */}
-      <footer className="footer">
-        <div className="container footer-content">
-          <div className="footer-logo">
-            BR<span>.</span>
-          </div>
-
-          <p>Desenvolvido por Bia Rodrigues</p>
-
-          <span>© 2026</span>
-        </div>
-      </footer>
-    </div>
+    </>
   );
 }
 
